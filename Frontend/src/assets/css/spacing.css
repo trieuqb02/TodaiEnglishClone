@@ -1,0 +1,33 @@
+/* margin */
+.m-4{
+    margin: 4px;
+}
+
+.m-8{
+    margin: 8px;
+}
+
+.m-10{
+    margin: 10px;
+}
+
+.mr-6{
+    margin-right: 6px;
+}
+
+.mtb-16{
+    margin: 16px 0px;
+}
+
+/* padding */
+.p-4{
+    padding: 4px;
+}
+
+.p-8{
+    padding: 8px;
+}
+
+.p-10{
+    padding: 10px;
+}
