@@ -19,5 +19,5 @@
 }
 
 .border-radius-xxs{
-    border-radius: var(--border-radius-xss);
+    border-radius: var(--border-radius-xxs);
 }

@@ -1,19 +1,4 @@
 :root {
-    --wrong-color:#f10909;
-    --one-primary-color:#4f79c4;
-    --two-primary-color:#28489d;
-    --active-color:#3347a0;
-    --hover-color:#26469b;
-    --white-color:#fff;
-    --white-background-color:#f7f7f7;
-    --header-height:74px;
-    --text-color: #363636;
-    --border-color:#d8d8d8;
-    --btn-color:#26469b;
-    --topic-set-text-color:#5468a0;
-    --saved-bookmark-color: #FFD700;
-    --bookmark-color: #808080;
-
     /* colors */
     --color-primary: #4f79c4;
     --color-secondary: #28489d;

@@ -1,0 +1,69 @@
+<form class="form-container signin" [formGroup]="loginInForm">
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['username'].errors && submitted"
+      formControlName="username"
+      class="form-group-input border-radius-sm"
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Nhập tài khoản"
+    />
+    <div class="form-group-error">
+      @if (f['username'].errors && submitted) {
+        <span>Vui lòng nhập tài khoản</span>
+      } @else if (messageUsernameError && submitted) {
+        <span>{{ messageUsernameError }}</span>
+      }
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['password'].errors && submitted"
+      formControlName="password"
+      class="form-group-input border-radius-sm"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Nhập mật khẩu"
+    />
+    <div class="form-group-error">
+      @if (f['password'].errors && submitted) {
+        <span>Vui lòng nhập mật khẩu</span>
+      } @else if (messagePasswordError && submitted) {
+        <span>{{ messagePasswordError }}</span>
+      }
+    </div>
+  </div>
+  <div class="form-group flex-container">
+    <span>Nhớ tài khoản</span>
+    <input type="checkbox"/>
+  </div>
+  <div class="form-group">
+    <app-button
+      [buttonClass]="'primary'"
+      [borderRadius]="'24px'"
+      (onClick)="onSubmit()"
+    >
+      Đăng nhập
+    </app-button>
+  </div>
+  <div class="flex-container flex-row-reverse mtb-16">
+    <a routerLink="/auth/registration" class="page-link" href=""
+    >Đăng kí tài khoản mới</a
+    >
+  </div>
+  <span class="or mtb-16">Hoặc</span>
+  <div class="flex-container justify-between">
+    <app-oauth2-button [oauth2Type]="'facebook'">
+      <i class="fa-brands fa-facebook fb"></i>
+      Đăng nhập với FaceBook
+    </app-oauth2-button>
+    <app-oauth2-button [oauth2Type]="'google'">
+      <i class="fa-brands fa-google gg"></i>
+      Đăng nhập với Google
+    </app-oauth2-button>
+  </div>
+</form>

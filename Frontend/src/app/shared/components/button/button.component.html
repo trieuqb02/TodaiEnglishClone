@@ -1,0 +1,12 @@
+<button
+  [attr.type]="type"
+  [class]="buttonClass"
+  [disabled]="disabled"
+  [style.border-radius]="borderRadius"
+  [style.text-align]="position"
+  (click)="handleClick()"
+>
+  <ng-content select="[icon-left]"></ng-content>
+  <ng-content></ng-content>
+  <ng-content select="[icon-right]"></ng-content>
+</button>

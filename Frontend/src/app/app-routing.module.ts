@@ -21,7 +21,9 @@ const routes: Routes = [
   {
     path: '',
     component: UserLayoutComponent,
-    children: [],
+    children:[
+
+    ]
   },
   {
     path: 'admin',
