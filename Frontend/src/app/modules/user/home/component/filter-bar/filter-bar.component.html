@@ -1,0 +1,58 @@
+<div class="flex-container filter-bar align-center">
+  @if (isSearching) {
+    <div class="flex-item--lg-0-5">
+      <app-button [buttonClass]="'custom-back-filter-button'" (onClick)="changeSearchBar()">
+        <i class="fa-solid fa-angle-left"></i>
+      </app-button>
+    </div>
+    <div class="flex-item--lg-11-5">
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-group-input search-input" placeholder="Search articles...">
+      </div>
+    </div>
+  } @else {
+    <div class="flex-item--lg-3 flex-container align-center">
+      <div class="button-container mr-10">
+        <app-button [buttonClass]="'custom-filter-button'" [borderRadius]="'8px'">
+          <i class="fa-solid fa-book"></i>
+          Dictionary
+        </app-button>
+      </div>
+      <div class="button-container">
+        <app-button [buttonClass]="'custom-filter-button'" [borderRadius]="'8px'" (onClick)="changeSearchBar()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Search
+        </app-button>
+      </div>
+    </div>
+    <div class="flex-item--lg-9">
+      <div class="flex-container filters-container">
+        <div>
+          <span>Filter: </span>
+        </div>
+        <div>
+          <span>Level: </span>
+          <select>
+            <option>Easy</option>
+            <option>Normal</option>
+          </select>
+        </div>
+        <div>
+          <span>Source: </span>
+          <select>
+            <option>BCC</option>
+            <option>CNN</option>
+          </select>
+        </div>
+        <div>
+          <span>Topic: </span>
+          <select>
+            <option>Science and technology</option>
+            <option>Travel</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  }
+</div>

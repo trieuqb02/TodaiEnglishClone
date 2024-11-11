@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
   @Input() type: 'button' | 'submit' | 'reset' = 'button';

@@ -19,7 +19,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-
     @Value("${app.prefix}")
     private String prefix;
     private static final String REALM_ACCESS_CLAIM = "realm_access";

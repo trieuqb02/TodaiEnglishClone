@@ -15,8 +15,16 @@
     margin-right: 6px;
 }
 
+.mr-10{
+  margin-right: 10px;
+}
+
 .mtb-16{
     margin: 16px 0px;
+}
+
+.mt-20{
+  margin-top: 20px;
 }
 
 /* padding */

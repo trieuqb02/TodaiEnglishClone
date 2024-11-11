@@ -4,11 +4,11 @@ button {
     width: 100%;
     font-size: var(--font-size-md);
     outline: none;
+    border: none;
     padding: 10px;
     background-color: var(--color-bg);
-    color: var(--color-text);
+    color: var(--color-text)
 }
-
 
 button:disabled {
     --color-bg: var(--color-secondary);
@@ -22,18 +22,16 @@ button:hover:not(:disabled) {
 button.none {
     --color-bg: var(--color-white);
     --color-text: var(--color-text-black);
-    border: 0.5px solid var(--color-gray);
 }
 
 button.primary {
     --color-bg: var(--color-primary);
     --color-text: var(--color-text-white);
-    border: none;
 }
 
 button.secondary  {
     --color-bg: var(--color-secondary);
-    --color-text: var(--color-text-white)
+    --color-text: var(--color-text-white);
 }
 
 button.edit {
