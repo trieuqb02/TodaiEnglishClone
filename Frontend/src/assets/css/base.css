@@ -36,7 +36,7 @@
     /* font-size */
     --font-size-xl: 2rem;
     --font-size-lg: 1.5rem;
-    --font-size-md: 1rem;
+    --font-size-md: 1.2rem;
     --font-size-sm: 0.9rem;
     --font-size-xs: 0.8rem;
     --font-size-xxs: 0.7rem;
@@ -44,7 +44,7 @@
     /* line-height */
     --line-height-xl: 3rem;
     --line-height-lg: 2.25rem;
-    --line-height-md: 1.5rem;
+    --line-height-md: 1.8rem;
     --line-height-sm: 1.35rem;
     --line-height-xs: 1.2rem;
     --line-height-xxs: 0.84rem;

@@ -24,6 +24,9 @@ export class WordLevelPipe implements PipeTransform {
         case 'tc4-':
           levelClass = 'word-level-4';
           break;
+        case 'str-':
+          levelClass = 'word-strong';
+          break;
         default:
           return `<span>${word}</span>`;
       }

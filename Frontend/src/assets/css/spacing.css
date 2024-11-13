@@ -27,6 +27,10 @@
   margin-top: 20px;
 }
 
+.mb-16{
+  margin-bottom: 16px;
+}
+
 /* padding */
 .p-4{
     padding: 4px;

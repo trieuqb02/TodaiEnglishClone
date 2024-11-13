@@ -1,13 +1,13 @@
 .date-input-container {
   display: flex;
-  max-width: 300px;
+  max-width: 360px;
   margin: 10px 0;
 }
 
 .date-input-container label {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-xs);
   color: var(--color-gray);
-  width: 200px;
+  width: 120px;
   text-align: justify;
 }
 
@@ -95,7 +95,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   line-height: var(--line-height-xs);
 }
 
-.topic, .time-up, .number-view{
+.source, .time-up, .number-view{
   color: var(--color-gray);
   font-size: var(--font-size-xs);
 }

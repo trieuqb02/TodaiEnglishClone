@@ -44,7 +44,7 @@
   line-height: var(--line-height-lg);
 }
 
-.first-news .article-info .topic{
+.first-news .article-info .source{
   background-color: var(--color-background-secondary);
   color: var(--color-black);
   border-radius:var(--border-radius-xs);

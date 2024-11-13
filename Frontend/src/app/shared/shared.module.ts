@@ -9,11 +9,12 @@ import {AvatarComponent} from './components/avatar/avatar.component';
 import {NgClass} from "@angular/common";
 import {WordLevelPipe} from './pipes/word-level.pipe';
 import {DragScrollDirective} from "./directives/dragscroll.directive";
+import { AudioComponent } from './components/audio/audio.component';
 
 @NgModule({
   imports: [ReactiveFormsModule, NgClass],
-  exports: [ReactiveFormsModule, ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective],
-  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective],
+  exports: [ReactiveFormsModule, ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent],
+  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent],
 })
 export class SharedModule {
 }

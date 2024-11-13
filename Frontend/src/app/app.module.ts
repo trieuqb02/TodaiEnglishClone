@@ -12,13 +12,15 @@ import {UserLayoutComponent} from "./layouts/user-layout/user-layout.component";
 import {AdminLayoutComponent} from "./layouts/admin-layout/admin-layout.component";
 import {UserHeaderComponent} from './layouts/user-layout/components/user-header/user-header.component';
 import {UserFooterComponent} from './layouts/user-layout/components/user-footer/user-footer.component';
-import { UserHomeLayoutComponent } from './layouts/user-home-layout/user-home-layout.component';
+import {UserHomeLayoutComponent} from './layouts/user-home-layout/user-home-layout.component';
 import {SharedModule} from "./shared/shared.module";
 import {HomeModule} from "./modules/user/home/hone.module";
+import {UserNewsDetailLayoutComponent} from './layouts/user-news-detail-layout/user-news-detail-layout.component';
+import {NewsDetailModule} from "./modules/user/news-detail/news-detail.module";
 
 @NgModule({
-  declarations: [AppComponent, AuthLayoutComponent, UserLayoutComponent, AdminLayoutComponent, UserHeaderComponent, UserFooterComponent, UserHomeLayoutComponent],
-  imports: [BrowserModule, AppRoutingModule, AuthModule, HttpClientModule, SharedModule,HomeModule],
+  declarations: [AppComponent, AuthLayoutComponent, UserLayoutComponent, AdminLayoutComponent, UserHeaderComponent, UserFooterComponent, UserHomeLayoutComponent, UserNewsDetailLayoutComponent,],
+  imports: [BrowserModule, AppRoutingModule, AuthModule, HttpClientModule, SharedModule, HomeModule, NewsDetailModule],
   providers: [CookieService, InterceptorProviders],
   bootstrap: [AppComponent],
 })

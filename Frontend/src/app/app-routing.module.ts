@@ -4,6 +4,7 @@ import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {UserLayoutComponent} from './layouts/user-layout/user-layout.component';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {UserHomeLayoutComponent} from "./layouts/user-home-layout/user-home-layout.component";
+import {UserNewsDetailLayoutComponent} from "./layouts/user-news-detail-layout/user-news-detail-layout.component";
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth-routing.module')
         .then((m) => m.AuthRoutingModule
-      ),
+        ),
   },
   {
     path: '',
@@ -28,8 +29,15 @@ const routes: Routes = [
         component: UserHomeLayoutComponent,
         loadChildren: () =>
           import('./modules/user/home/home-routing.module')
-          .then(m => m.HomeRoutingModule)
+            .then(m => m.HomeRoutingModule)
       },
+      {
+        path: 'detail',
+        component: UserNewsDetailLayoutComponent,
+        loadChildren: () =>
+          import('./modules/user/news-detail/news-detail-routing.module')
+            .then(m => m.NewsDetailRoutingModule)
+      }
     ]
   },
   {
