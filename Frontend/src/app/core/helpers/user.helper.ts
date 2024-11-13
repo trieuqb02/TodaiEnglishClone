@@ -7,17 +7,17 @@ interface IMenu {
 const userMenu:IMenu[] = [
   {
     id: 0,
-    name: 'Hồ sơ',
+    name: 'Profile',
     url: 'profile',
   },
   {
     id: 1,
-    name: 'Thiết lặp',
+    name: 'Setting',
     url: 'setting',
   },
   {
     id: 2,
-    name: 'Đăng xuất',
+    name: 'Logout',
     url: 'logout',
   },
 ];

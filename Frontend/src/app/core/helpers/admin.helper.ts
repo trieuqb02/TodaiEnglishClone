@@ -8,19 +8,19 @@ interface IMenu {
 const adminMenu: IMenu[] = [
   {
     id: 0,
-    name: 'Hồ sơ',
+    name: 'Profile',
     url: 'profile',
     icon: 'fa-solid fa-user'
   },
   {
     id: 1,
-    name: 'Thiết lặp',
+    name: 'Setting',
     url: 'setting',
     icon: 'fa-solid fa-gear'
   },
   {
     id: 2,
-    name: 'Đăng xuất',
+    name: 'Logout',
     url: 'logout',
     icon: 'fa-solid fa-circle-left'
   },
