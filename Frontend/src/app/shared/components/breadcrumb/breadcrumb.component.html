@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+  @for (breadcrumb of breadcrumbs;let last = $last; track $index;) { @if (!last)
+  {
+    <li class="breadcrumb-item">
+      <a [routerLink]="breadcrumb.url" routerLinkActive="active">{{
+          breadcrumb.label
+        }}</a>
+    </li>
+  } @else if(last) {
+    <li class="breadcrumb-item">
+      <span>{{ breadcrumb.label }}</span>
+    </li>
+  } }
+</ul>

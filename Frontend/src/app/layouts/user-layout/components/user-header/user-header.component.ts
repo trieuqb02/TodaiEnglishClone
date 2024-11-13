@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {userMenu} from '../../../../core/helpers/user.helper'
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-header',

@@ -17,9 +17,12 @@ import {SharedModule} from "./shared/shared.module";
 import {HomeModule} from "./modules/user/home/hone.module";
 import {UserNewsDetailLayoutComponent} from './layouts/user-news-detail-layout/user-news-detail-layout.component';
 import {NewsDetailModule} from "./modules/user/news-detail/news-detail.module";
+import {AdminHeaderComponent} from './layouts/admin-layout/components/admin-header/admin-header.component';
+import {AdminFooterComponent} from './layouts/admin-layout/components/admin-footer/admin-footer.component';
+import { AdminNavBarComponent } from './layouts/admin-layout/components/admin-nav-bar/admin-nav-bar.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthLayoutComponent, UserLayoutComponent, AdminLayoutComponent, UserHeaderComponent, UserFooterComponent, UserHomeLayoutComponent, UserNewsDetailLayoutComponent,],
+  declarations: [AppComponent, AuthLayoutComponent, UserLayoutComponent, AdminLayoutComponent, UserHeaderComponent, UserFooterComponent, UserHomeLayoutComponent, UserNewsDetailLayoutComponent, AdminHeaderComponent, AdminFooterComponent, AdminNavBarComponent,],
   imports: [BrowserModule, AppRoutingModule, AuthModule, HttpClientModule, SharedModule, HomeModule, NewsDetailModule],
   providers: [CookieService, InterceptorProviders],
   bootstrap: [AppComponent],

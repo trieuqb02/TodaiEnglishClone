@@ -10,11 +10,13 @@ import {NgClass} from "@angular/common";
 import {WordLevelPipe} from './pipes/word-level.pipe';
 import {DragScrollDirective} from "./directives/dragscroll.directive";
 import { AudioComponent } from './components/audio/audio.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @NgModule({
-  imports: [ReactiveFormsModule, NgClass],
-  exports: [ReactiveFormsModule, ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent],
-  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent],
+  imports: [ReactiveFormsModule, NgClass, RouterLink, RouterLinkActive],
+  exports: [ReactiveFormsModule, ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent,BreadcrumbComponent],
+  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent, BreadcrumbComponent],
 })
 export class SharedModule {
 }
