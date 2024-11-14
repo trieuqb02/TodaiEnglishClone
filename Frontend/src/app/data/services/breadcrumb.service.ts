@@ -1,24 +1,32 @@
-import { Injectable } from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
+import { EventEmitter, Injectable } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import {BreadcrumbModel} from "../models/breadcrumb.interface";
 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BreadcrumbService {
+
+  breadcrumbChanged = new EventEmitter<BreadcrumbModel[]>(false);
 
   breadcrumbs: Array<BreadcrumbModel> = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
-    });
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.breadcrumbs = this.createBreadcrumbs(this.activatedRoute.root);
+        this.breadcrumbChanged.emit(this.breadcrumbs);
+      });
   }
 
-  private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: Array<BreadcrumbModel> = []): Array<BreadcrumbModel> {
+  private createBreadcrumbs(
+    route: ActivatedRoute,
+    url: string = '',
+    breadcrumbs: Array<BreadcrumbModel> = []
+  ): Array<BreadcrumbModel> {
     const children: ActivatedRoute[] = route.children;
 
     if (children.length === 0) {
@@ -26,7 +34,9 @@ export class BreadcrumbService {
     }
 
     for (const child of children) {
-      const routeURL: string = child.snapshot.url.map(segment => segment.path).join('/');
+      const routeURL: string = child.snapshot.url
+        .map((segment) => segment.path)
+        .join('/');
       if (routeURL !== '') {
         url += `/${routeURL}`;
       }

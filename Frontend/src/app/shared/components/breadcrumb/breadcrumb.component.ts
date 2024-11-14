@@ -10,9 +10,19 @@ import {BreadcrumbModel} from "../../../data/models/breadcrumb.interface";
 export class BreadcrumbComponent {
   breadcrumbs: Array<BreadcrumbModel> = [];
 
-  constructor(private breadcrumbService: BreadcrumbService) {}
+  constructor(private breadcrumbService: BreadcrumbService) {
+    this.breadcrumbService.breadcrumbChanged.subscribe(
+      (crumbs: BreadcrumbModel[]) => {
+        this.onBreadcrumbChange(crumbs);
+      }
+    );
+  }
 
   ngOnInit(): void {
     this.breadcrumbs = this.breadcrumbService.breadcrumbs;
+  }
+
+  private onBreadcrumbChange(crumbs: BreadcrumbModel[]) {
+    this.breadcrumbs = crumbs;
   }
 }

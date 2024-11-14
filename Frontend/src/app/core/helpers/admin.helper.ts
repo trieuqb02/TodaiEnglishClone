@@ -29,38 +29,38 @@ const adminMenu: IMenu[] = [
 const adminNav:IMenu[] = [
   {
     id: 0,
-    name: 'Management Source',
-    url: 'management/source',
+    name: 'Management source',
+    url: 'source',
     icon: 'fa-solid fa-globe'
   },
   {
     id: 1,
-    name: 'Management Topic',
-    url: 'management/topic',
+    name: 'Management topic',
+    url: 'topic',
     icon: 'fa-solid fa-list'
   },
   {
     id: 2,
-    name: 'Management News',
-    url: 'management/news',
+    name: 'Management news',
+    url: 'news',
     icon: 'fa-regular fa-newspaper'
   },
   {
     id: 3,
-    name: 'Management Video',
-    url: 'management/video',
+    name: 'Management video',
+    url: 'video',
     icon: 'fa-regular fa-file-video'
   },
   {
     id: 4,
-    name: 'Management Exam',
-    url: 'management/exam',
+    name: 'Management test',
+    url: 'test',
     icon: 'fa-regular fa-clipboard'
   },
   {
     id: 5,
     name: 'Statistics',
-    url: 'management/statistics',
+    url: 'statistics',
     icon: 'fa-solid fa-chart-column'
   },
 ];
