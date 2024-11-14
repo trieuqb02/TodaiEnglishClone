@@ -1,3 +1,8 @@
+/*height*/
+.h-full{
+  height: 100%;
+}
+
 /* Grid*/
 .grid {
   display: block;
@@ -26,8 +31,6 @@
 .col-gutter-lr-8 {
   padding:0 8px;
 }
-
-
 
 /* Flex container */
 .flex-container {

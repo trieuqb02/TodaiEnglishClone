@@ -67,14 +67,17 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    data: { breadcrumb: 'Home' },
     children: [
+      {
+        path: '', redirectTo: 'home', pathMatch: 'full',
+      },
       {
         path: 'home',
         component: AdminHomeLayoutComponent,
         loadChildren: () =>
           import('./modules/admin/home/home-routing.module')
             .then(m => m.HomeRoutingModule),
-        data: { breadcrumb: 'Home' },
       },
       {
         path: 'topic',
