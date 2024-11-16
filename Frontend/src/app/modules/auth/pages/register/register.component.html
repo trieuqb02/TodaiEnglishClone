@@ -105,23 +105,23 @@
       [borderRadius]="'24px'"
       (onClick)="onSubmit()"
     >
-      Đăng kí
+      Register
     </app-button>
   </div>
   <div class="flex-container flex-row-reverse mtb-16">
     <a routerLink="/auth/login" class="page-link" href=""
-      >Đăng nhập tài khoản mới</a
+      >Login with new account</a
     >
   </div>
-  <span class="or mtb-16">Hoặc</span>
+  <span class="or mtb-16">or</span>
   <div class="flex-container justify-between">
     <app-oauth2-button [oauth2Type]="'facebook'">
       <i class="fa-brands fa-facebook fb"></i>
-      Đăng nhập với FaceBook
+      Register with FaceBook
     </app-oauth2-button>
     <app-oauth2-button [oauth2Type]="'google'">
       <i class="fa-brands fa-google gg"></i>
-      Đăng nhập với Google
+      Register with Google
     </app-oauth2-button>
   </div>
 </form>

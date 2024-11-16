@@ -29,6 +29,7 @@ import {AdminStatisticsLayoutComponent} from './layouts/admin-statistics-layout/
 import { UserVideoLayoutComponent } from './layouts/user-video-layout/user-video-layout.component';
 import { UserTestLayoutComponent } from './layouts/user-test-layout/user-test-layout.component';
 import { AdminTestLayoutComponent } from './layouts/admin-test-layout/admin-test-layout.component';
+import {SourceModule} from "./modules/admin/source/source.module";
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { AdminTestLayoutComponent } from './layouts/admin-test-layout/admin-test
     HttpClientModule,
     SharedModule,
     HomeModule,
-    NewsDetailModule
+    NewsDetailModule,
+    SourceModule,
   ],
   providers: [CookieService, InterceptorProviders],
   bootstrap: [AppComponent],

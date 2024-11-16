@@ -9,14 +9,26 @@ import {AvatarComponent} from './components/avatar/avatar.component';
 import {NgClass} from "@angular/common";
 import {WordLevelPipe} from './pipes/word-level.pipe';
 import {DragScrollDirective} from "./directives/dragscroll.directive";
-import { AudioComponent } from './components/audio/audio.component';
-import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {AudioComponent} from './components/audio/audio.component';
+import {BreadcrumbComponent} from './components/breadcrumb/breadcrumb.component';
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {PaginationComponent} from './components/pagination/pagination.component';
+import {ModalComponent} from './components/modal/modal.component';
+import {SelectionComponent} from './components/selection/selection.component';
+import { SearchInputComponent } from './components/search-input/search-input.component';
 
 @NgModule({
-  imports: [ReactiveFormsModule, NgClass, RouterLink, RouterLinkActive],
-  exports: [ReactiveFormsModule, ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent,BreadcrumbComponent],
-  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent, BreadcrumbComponent],
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    RouterLink,
+    RouterLinkActive
+  ],
+  exports: [
+    ReactiveFormsModule,
+    ButtonComponent,
+    Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent, BreadcrumbComponent, PaginationComponent, SelectionComponent, SearchInputComponent, ModalComponent],
+  declarations: [ButtonComponent, Oauth2ButtonComponent, ToolbarComponent, DropdownComponent, DropdownDirective, AvatarComponent, WordLevelPipe, DragScrollDirective, AudioComponent, BreadcrumbComponent, PaginationComponent, ModalComponent, SelectionComponent, SearchInputComponent],
 })
 export class SharedModule {
 }

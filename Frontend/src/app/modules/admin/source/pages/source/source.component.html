@@ -1,0 +1,69 @@
+<div class="flex-container justify-between align-center box-shadow-xs border-radius-xs tool-bar">
+  <div class="search-container">
+    <app-search-input></app-search-input>
+  </div>
+  <div class="selection-container">
+    <app-selection [borderRadius]="'6px'" [selections]="selection"></app-selection>
+  </div>
+  <div class="but-container">
+    <app-button [borderRadius]="'24px'" [buttonClass]="'primary'">
+      <i class="fa-solid fa-circle-plus" icon-left></i>
+      Add new
+    </app-button>
+  </div>
+</div>
+
+<div class="box-shadow-xs border-radius-xs list-container">
+  <div class="header-table">
+    <div>Name</div>
+    <div>Description</div>
+    <div>Quantity News</div>
+    <div>Status</div>
+    <div>Operation</div>
+  </div>
+  <div class="content-table">
+    <div class="item-content-table">
+      <div>Name</div>
+      <div>Description</div>
+      <div>Quantity News</div>
+      <div>Status</div>
+      <div>Operation</div>
+    </div>
+    <div class="item-content-table">
+      <div>Name</div>
+      <div>Description</div>
+      <div>Quantity News</div>
+      <div>Status</div>
+      <div>Operation</div>
+    </div>
+    <div class="item-content-table">
+      <div>Name</div>
+      <div>Description</div>
+      <div>Quantity News</div>
+      <div>Status</div>
+      <div>Operation</div>
+    </div><div class="item-content-table">
+    <div>Name</div>
+    <div>Description</div>
+    <div>Quantity News</div>
+    <div>Status</div>
+    <div>Operation</div>
+  </div><div class="item-content-table">
+    <div>Name</div>
+    <div>Description</div>
+    <div>Quantity News</div>
+    <div>Status</div>
+    <div>Operation</div>
+  </div><div class="item-content-table">
+    <div>Name</div>
+    <div>Description</div>
+    <div>Quantity News</div>
+    <div>Status</div>
+    <div>Operation</div>
+  </div>
+  </div>
+</div>
+
+<app-modal [isVisible]="false">
+
+</app-modal>

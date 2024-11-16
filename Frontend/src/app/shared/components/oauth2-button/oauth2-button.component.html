@@ -1,3 +1,6 @@
-<app-button [borderRadius]="'8px'" (onClick)="loginWithOauth2()">
+<!--<app-button [borderRadius]="'8px'" (onClick)="loginWithOauth2()">-->
+<!--  <ng-content></ng-content>-->
+<!--</app-button>-->
+<button (submit)="loginWithOauth2()">
   <ng-content></ng-content>
-</app-button>
+</button>

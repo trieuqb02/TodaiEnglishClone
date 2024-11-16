@@ -1,0 +1,7 @@
+<select [style.border-radius]="borderRadius" class="form-group-select">
+  @for (item of selections; track item.id){
+    <option [value]="item.id" [disabled]="item.disable">
+      {{item.name}}
+    </option>
+  }
+</select>

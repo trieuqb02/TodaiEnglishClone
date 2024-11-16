@@ -1,0 +1,10 @@
+.main-title{
+  margin-top: 10px;
+  font-size: var(--font-size-xl);
+}
+
+.sub-title{
+  margin-top: 10px;
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
