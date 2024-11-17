@@ -1,0 +1,10 @@
+@if(isVisible){
+  <div class="modal">
+    <div class="content border-radius-sm">
+      <div class="close flex-container justify-center align-center" (click)="close()">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+}

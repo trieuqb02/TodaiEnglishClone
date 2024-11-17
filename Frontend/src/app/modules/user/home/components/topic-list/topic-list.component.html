@@ -1,0 +1,10 @@
+
+  <span class="topic-title">Read bilingual newspapers by topic</span>
+  <div class="topic-list">
+    @for (item of allTopic; track item.id){
+      <div class="topic-item">
+        <a [ngClass]="{'active': name == item.name}"> {{item.name}} </a>
+      </div>
+    }
+  </div>
+

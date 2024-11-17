@@ -1,0 +1,20 @@
+<div class="news-detail">
+  <h2 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h2>
+  <div class="bookmark">
+    <i class="fa-solid fa-bookmark"></i>
+  </div>
+  <div class="time-up">
+    <span class="">2024-11-12 19:31:31</span>
+  </div>
+  <div class="flex-container justify-center">
+    <img class="image" src="https://admin.todaienglish.com/images/news/f5b64ab1e2a5f795a317b88dfa6e3042.webp" />
+  </div>
+  <div class="audio-player">
+    <app-audio [audioFile]="'http://admin.todaienglish.com/audios/news/ae6a11c1a932d50ee090089a8add94eb.mp3'"></app-audio>
+  </div>
+  <p class="content" [innerHTML]="getSafeHtml(content1 | wordLevel)"></p>
+  <p class="content" [innerHTML]="getSafeHtml(content2 | wordLevel)"></p>
+  <p class="content" [innerHTML]="getSafeHtml(content3 | wordLevel)"></p>
+  <p class="content" [innerHTML]="getSafeHtml(content4 | wordLevel)"></p>
+  <span class="source">Source: TODAII</span>
+</div>

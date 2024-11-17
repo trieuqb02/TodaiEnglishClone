@@ -1,0 +1,23 @@
+.img{
+  width: 500px;
+  height: 300px;
+  aspect-ratio: 11 / 6;
+  margin-bottom: 10px;
+}
+
+.form-group-input[type="file"] {
+  display: none;
+}
+
+.audio-player{
+  margin: 10px 0;
+}
+
+.remove-container{
+  display: inline-block;
+}
+
+.remove-btn{
+  padding: 0;
+  color: var(--color-red);
+}

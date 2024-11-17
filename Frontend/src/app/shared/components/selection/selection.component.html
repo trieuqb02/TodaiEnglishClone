@@ -1,0 +1,11 @@
+<select class="form-group-select"
+        [style.border-radius]="borderRadius"
+        [disabled]="disabled"
+        (change)="onChange($event)"
+>
+  @for (item of options; track item.value) {
+    <option [value]="item.value" [disabled]="item.disable" [defaultSelected]="item.value == selected">
+      {{ item.label }}
+    </option>
+  }
+</select>

@@ -1,0 +1,26 @@
+.pagination{
+  font-size: var(--font-size-sm);
+  display: flex;
+  justify-content: end;
+}
+
+.pagination-item{
+  border: none;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 12px;
+}
+
+.pagination-item.normal{
+  background-color: var(--color-primary);
+}
+
+
+.pagination-item:not(.disabled):hover{
+  cursor: pointer;
+  background-color: var(--color-secondary);
+}
+
+.pagination-item.active{
+  background-color: var(--color-secondary);
+}

@@ -1,0 +1,117 @@
+<div class="my-6">
+<!--  <app-title-header class="" [title]="title"></app-title-header>-->
+</div>
+<div class="form-container flex-container row-gutter-lr-16 flex-wrap box-shadow-sm border-radius-sm" [formGroup]="newsForm">
+  <div class="form-group flex-item--lg-3 col-gutter-lr-16">
+    <label class="form-group-label">Choose Topic</label>
+    <app-selection [options]="optionTopics" formControlName="topic" (click)="cancelError()"></app-selection>
+    @if (f['topic'].errors && f['topic'].errors!['required'] && submitted) {
+      <div class="form-group-error">
+        <span>Pls choose topic</span>
+      </div>
+    }
+  </div>
+  <div class="form-group flex-item--lg-3 col-gutter-lr-16">
+    <label class="form-group-label">Choose Source</label>
+    <app-selection [options]="optionSources" formControlName="source" (click)="cancelError()"></app-selection>
+    @if (f['source'].errors && f['source'].errors!['required'] && submitted) {
+      <div class="form-group-error">
+        <span>Pls choose topic</span>
+      </div>
+    }
+  </div>
+  <div class="form-group flex-item--lg-3 col-gutter-lr-16">
+    <label class="form-group-label">Choose time</label>
+    <input class="form-group-input" type="datetime-local" formControlName="createdAt" (click)="cancelError()">
+    @if (f['createdAt'].errors && f['createdAt'].errors!['required'] && submitted) {
+      <div class="form-group-error">
+        <span>Pls Enter date</span>
+      </div>
+    }
+  </div>
+  <div class="form-group flex-item--lg-3 col-gutter-lr-16">
+    <label class="form-group-label">Choose Status</label>
+    <app-selection [options]="optionStatus" formControlName="status" (click)="cancelError()"></app-selection>
+    @if (f['status'].errors && f['status'].errors!['required'] && submitted) {
+      <div class="form-group-error">
+        <span>Pls choose status</span>
+      </div>
+    }
+  </div>
+  <div class="form-group flex-item--lg-12 col-gutter-lr-16">
+    <label class="form-group-label">Title</label>
+    <textarea class="form-group-input" rows="6" placeholder="Enter title" formControlName="title" (click)="cancelError()"></textarea>
+    @if (f['title'].errors && f['title'].errors!['required'] && submitted) {
+      <div class="form-group-error">
+        <span>Pls enter topic</span>
+      </div>
+    }
+  </div>
+  <div class="form-group flex-item--lg-12 col-gutter-lr-16 flex-container align-center flex-column">
+    @if (imageFile()) {
+      <img class="img border-radius-sm" [src]="imageFile()" alt="image" >
+    }
+    <div class="form-group" style="max-width: 180px">
+      <app-button [buttonClass]="'primary'" [borderRadius]="'6px'" fontSize="xs" (click)="onSelectFile('image')">
+        <i class="fa-solid fa-image"></i>
+        Choose file image
+      </app-button>
+      <input #files class="form-group-input" type="file" placeholder="Add image" (change)="handleChooseFile('image',$event)" (click)="cancelError()">
+      @if (f['title'].errors && f['title'].errors!['required'] && submitted) {
+        <div class="form-group-error">
+          <span>Pls choose image file</span>
+        </div>
+      }
+    </div>
+    @if (audioFile()){
+      <div style="width: 700px">
+        <div class="audio-player">
+          <app-audio [audioFile]="audioFile()"></app-audio>
+        </div>
+      </div>
+    }
+    <div class="form-group" style="max-width: 180px">
+      <app-button [buttonClass]="'primary'" [borderRadius]="'6px'" fontSize="xs" (click)="onSelectFile('audio')">
+        <i class="fa-solid fa-file-audio"></i>
+        Choose file audio
+      </app-button>
+      <input #files class="form-group-input" type="file" accept="audio/*" placeholder="Add audio" (change)="handleChooseFile('audio',$event)" (click)="cancelError()">
+      @if (f['title'].errors && f['title'].errors!['required'] && submitted) {
+        <div class="form-group-error">
+          <span>Pls choose audio file</span>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="form-group flex-item--lg-12 col-gutter-lr-16" formArrayName="paragraphs">
+    @for (paragraph of paragraphs.controls; let idx = $index; track paragraph.value) {
+      @if (!paragraphs.at(idx).get('isDeleted')?.value){
+        <div [formGroupName]="idx" class="mt-20">
+          <div class="flex-container justify-between mb-10">
+            <span>Paragraph</span>
+            <div class="remove-container">
+              <button class="remove-btn" [title]="'remove news'" type="button" (click)="handleRemoveParagraph(idx)">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+          <textarea class="form-group-input" rows="6" placeholder="Enter paragraph" formControlName="content" (click)="cancelError()"></textarea>
+          @if (paragraphs.at(idx).get('content')?.errors?.['required'] && submitted) {
+            <div class="form-group-error">
+              <span>Pls enter paragraph content</span>
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+  <div class="form-group flex-item--lg-12 col-gutter-lr-16 flex-container align-center flex-row justify-between">
+    <app-button [buttonClass]="'primary'" [borderRadius]="'6px'" fontSize="xs" (click)="handleAddParagraph()">
+      <i class="fa-solid fa-plus"></i>
+      Add paragraph
+    </app-button>
+    <app-button [buttonClass]="'primary'" [borderRadius]="'6px'" fontSize="xs" (click)="handleSubmit()">
+      Submit
+    </app-button>
+  </div>
+</div>

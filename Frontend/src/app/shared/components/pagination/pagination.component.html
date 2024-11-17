@@ -1,0 +1,18 @@
+<div class="pagination">
+  <div class="pagination-item" [ngClass]="{'disabled': currentPageNumber == 1}"
+       (click)="handleGoToPage(1)"><i class="fa-solid fa-angles-left"></i></div>
+  <div class="pagination-item" [ngClass]="{'disabled': currentPageNumber == 1}"
+       (click)="handleGoToPage(currentPageNumber - 1)"><i class="fa-solid fa-angle-left"></i></div>
+  @for (page of getPaginationGenerator(); track page) {
+    <div class="pagination-item" (click)="handleGoToPage(page)"
+         [ngClass]="{'active': page == currentPageNumber}">{{ page }}
+    </div>
+  }
+  <div class="pagination-item" [ngClass]="{'disabled': currentPageNumber == totalPageNumber}"
+       (click)="handleGoToPage(currentPageNumber + 1)"><i
+    class="fa-solid fa-angle-right"></i></div>
+  <div class="pagination-item" [ngClass]="{'disabled': currentPageNumber == totalPageNumber}"
+       (click)="handleGoToPage(totalPageNumber)"><i
+    class="fa-solid fa-angles-right"></i></div>
+</div>
+

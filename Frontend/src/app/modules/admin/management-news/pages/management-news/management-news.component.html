@@ -1,0 +1,85 @@
+<div class="my-6">
+  <app-title-header class="" [title]="'Management News'"></app-title-header>
+</div>
+<div class="flex-container justify-between align-center box-shadow-sm border-radius-xs tool-bar flex-wrap">
+  <div class="flex-item--lg-12 flex-container justify-between mb-10">
+    <div class="search-container">
+      <app-search-input (valueChange)="selectionChange($event)"></app-search-input>
+    </div>
+    <div class="but-container">
+      <app-button [borderRadius]="'8px'" [buttonClass]="'primary'" (click)="navigateToPage('/admin/news/add', $event)">
+        <i class="fa-solid fa-circle-plus" icon-left></i>
+        Add news
+      </app-button>
+    </div>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionSources" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionTopics" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionOther" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionStatus" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+</div>
+<div class="flex-container row-gutter-lr-8 flex-wrap mt-20">
+  @for (item of data; track item.id) {
+    <div class="flex-item--lg-3 col-gutter-lr-8">
+      <a class="news-item box-shadow-sm border-radius-xs" [routerLink]='"/admin/news/detail/" + item.id'>
+        <img class="news-item-image"
+             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
+             alt="" >
+        <h3 class="news-item-title" [innerHTML]="item.title | wordLevel"></h3>
+        <div class="news-item-info">
+        <span class="news-item-source">
+          {{item.source.name}}
+        </span>
+          <div class="flex-container align-center">
+            <span class="news-item-time-up">{{item.createdAt! | formatDate }}</span>
+            <span class="news-item-number-view">
+        [<i class="fa-solid fa-eye"></i> {{item.viewed}}]
+        </span>
+            <button class="news-item-btn" [title]="'update news'" (click)="navigateToPage('/admin/news/' + item.id + '/update', $event)">
+              <i class="fa-solid fa-pen edit"></i>
+            </button>
+            <button class="news-item-btn" [title]="'remove news'" (click)="handleRemoveNews($event)">
+              <i class="fa-solid fa-trash remove"></i>
+            </button>
+          </div>
+        </div>
+      </a>
+    </div>
+  }
+
+</div>
+
+<app-modal [(isVisible)]="isVisible">
+  <div class="notification border-radius-sm">
+    <h2 class="notification-title">Confirm Remove</h2>
+    <div class="notification-content">
+      Are you sure you want to remove this item?
+    </div>
+    <div class="flex-container justify-between row-gutter-lr-16">
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'danger'" [borderRadius]="'8px'" (click)="isVisible = !isVisible"
+                    [fontSize]="'sm'">
+          Cancel
+        </app-button>
+      </div>
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'primary'" [borderRadius]="'8px'" (click)="isVisible = !isVisible"
+                    [fontSize]="'sm'">
+          Confirm
+        </app-button>
+      </div>
+    </div>
+  </div>
+</app-modal>
+
+
+
+

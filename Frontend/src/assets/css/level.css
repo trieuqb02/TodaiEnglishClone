@@ -1,0 +1,45 @@
+.line-level-1{
+  background-color: var(--color-level-1);
+  height: 100%;
+  width: 20%;
+  border-bottom-left-radius: var(--border-radius-sm);
+}
+
+.line-level-2{
+  background-color: var(--color-level-2);
+  height: 100%;
+  width: 20%;
+}
+
+.line-level-3{
+  background-color: var(--color-level-3);
+  height: 100%;
+  width: 20%;
+}
+
+.line-level-4{
+  background-color: var(--color-level-4);
+  height: 100%;
+  width: 40%;
+  border-bottom-right-radius: var(--border-radius-sm);
+}
+
+.word-strong{
+  font-weight: bold;
+}
+
+.word-level-1{
+  border-bottom:2px solid var(--color-level-1);
+}
+
+.word-level-2{
+  border-bottom:2px solid var(--color-level-2);
+}
+
+.word-level-3{
+  border-bottom:2px solid var(--color-level-3);
+}
+
+.word-level-4{
+  border-bottom:2px solid var(--color-level-4);
+}

@@ -1,0 +1,134 @@
+<div class="my-6">
+  <app-title-header [title]="'Management Source'"></app-title-header>
+</div>
+<div class="flex-container justify-between align-center box-shadow-sm border-radius-xs tool-bar">
+  <div class="search-container">
+    <app-search-input (valueChange)="onValueChange($event)"></app-search-input>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="selection" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+  <div class="but-container">
+    <app-button [borderRadius]="'8px'" [buttonClass]="'primary'" (click)="openCreatedForm()">
+      <i class="fa-solid fa-circle-plus" icon-left></i>
+      New Source
+    </app-button>
+  </div>
+</div>
+
+<div class="box-shadow-sm border-radius-xs list-container">
+  <div class="header-table flex-container">
+    <div class="flex-item--lg-2">Name</div>
+    <div class="flex-item--lg-4">Description</div>
+    <div class="flex-item--lg-2">Quantity News</div>
+    <div class="flex-item--lg-2">Status</div>
+    <div class="flex-item--lg-2">Operations</div>
+  </div>
+  <div class="content-table">
+    @for (item of data; track item.id) {
+      <div class="item-content-table flex-container">
+        <div class="flex-item--lg-2 rate-line"><p>{{ item.name }}</p></div>
+        <div class="flex-item--lg-4 rate-line">
+          <p>{{ item.description }}</p>
+        </div>
+        <div class="flex-item--lg-2"><p>{{ item.quantity }} news</p></div>
+        <div class="flex-container align-center flex-item--lg-2">
+          @if (item.status) {
+            <span class="status active">
+              active
+            </span>
+          } @else {
+            <span class="status disable">
+              disable
+            </span>
+          }
+        </div>
+        <div class="flex-container align-center flex-item--lg-2">
+          <div class="mr-6">
+            <app-button [type]="'button'" [buttonClass]="'edit'" [borderRadius]="'6px'" [fontSize]="'xxs'"
+                        (click)="handleUpdate(item)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </app-button>
+          </div>
+          <div>
+            <app-button [type]="'button'" [buttonClass]="'danger'" [borderRadius]="'6px'" [fontSize]="'xxs'"
+                        (click)="handleRemove()">
+              <i class="fa-solid fa-trash"></i>
+            </app-button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<app-modal [(isVisible)]="showForm">
+  <div class="form-add-layout" [formGroup]="formSource">
+    <h2 class="title">Form add new source</h2>
+    <div class="flex-container row-gutter-lr-8">
+      <div class="form-group flex-item--lg-8 col-gutter-lr-8">
+        <input
+          (click)="cancelError()"
+          formControlName="name"
+          class="form-group-input border-radius-sm"
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter name"
+        />
+        @if (f['name'].errors && f['name'].errors!['required'] && submitted) {
+          <div class="form-group-error">
+            <span>Pls choose status</span>
+          </div>
+        }
+      </div>
+      <div class="form-group flex-item--lg-4 col-gutter-lr-8">
+        <app-selection (click)="cancelError()" formControlName="status" [options]="optionsStatus"></app-selection>
+        @if (f['status'].errors && f['status'].errors!['required'] && submitted) {
+          <div class="form-group-error">
+            <span>Pls choose status</span>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="form-group">
+      <textarea
+        formControlName="description"
+        class="form-group-input border-radius-sm"
+        name="password"
+        placeholder="Enter description"
+        rows="10"
+      ></textarea>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item--lg-12">
+        <app-button [type]="'button'" [buttonClass]="'primary'" [borderRadius]="'6px'" (click)="handleCreate()">
+          Confirm
+        </app-button>
+      </div>
+    </div>
+  </div>
+</app-modal>
+
+<app-modal [(isVisible)]="showNotification">
+  <div class="notification border-radius-sm">
+    <h2 class="notification-title">Confirm Remove</h2>
+    <div class="notification-content">
+      Are you sure you want to remove this item?
+    </div>
+    <div class="flex-container justify-between row-gutter-lr-16">
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'danger'" [borderRadius]="'8px'" (click)="showNotification = !showNotification"
+                    [fontSize]="'sm'">
+          Cancel
+        </app-button>
+      </div>
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'primary'" [borderRadius]="'8px'" (click)="showNotification = !showNotification"
+                    [fontSize]="'sm'">
+          Confirm
+        </app-button>
+      </div>
+    </div>
+  </div>
+</app-modal>
