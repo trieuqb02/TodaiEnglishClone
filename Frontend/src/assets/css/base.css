@@ -1,0 +1,72 @@
+:root {
+  /* Primary Colors */
+  --color-primary: #4f79c4;
+  --color-secondary: #28489d;
+
+  /* Button Colors */
+  --color-disable-btn: #e0e0e0;
+  --color-edit-btn: #f38621;
+  --color-danger-btn: #ee6352;
+  --color-info-btn: #00a5cf;
+
+  /* Background Colors */
+  --color-background-primary: #fff;
+  --color-background-secondary: #f7f7f7;
+
+  /* Text Colors */
+  --color-text-primary: #363636;
+  --color-text-secondary: #676767;
+  --color-text-tertiary: #b7b7b7;
+  --color-text-quaternary: #9a9a9a;
+  --color-text-white: #fff;
+  --color-text-black: #1c1c1c;
+
+  /* Border Colors */
+  --color-border-primary: #d8d8d8;
+
+  /* Additional Colors */
+  --color-white: #fff;
+  --color-gray: #808080;
+  --color-blue: #00a5cf;
+  --color-orange: #f38621;
+  --color-red: #ee6352;
+  --color-black: #000;
+
+  /* Status Colors */
+  --color-level-1: #2ecc71;
+  --color-level-2: #3498db;
+  --color-level-3: #f39c12;
+  --color-level-4: #e74c3c;
+
+  /* Font Sizes */
+  --font-size-xl: 2rem;
+  --font-size-lg: 1.5rem;
+  --font-size-md: 1.2rem;
+  --font-size-sm: 0.9rem;
+  --font-size-xs: 0.8rem;
+  --font-size-xxs: 0.7rem;
+
+  /* Line Heights */
+  --line-height-xl: 2.4rem;
+  --line-height-lg: 2rem;
+  --line-height-md: 1.8rem;
+  --line-height-sm: 1.35rem;
+  --line-height-xs: 1.2rem;
+  --line-height-xxs: 1rem;
+
+  /* Border Radius */
+  --border-radius-xl: 100px;
+  --border-radius-lg: 24px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 8px;
+  --border-radius-xs: 4px;
+  --border-radius-xxs: 2px;
+
+  /* Shadow */
+  --shadow-xss: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-xs: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 10px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.1);
+}

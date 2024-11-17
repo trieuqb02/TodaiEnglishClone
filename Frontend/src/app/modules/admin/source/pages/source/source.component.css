@@ -1,0 +1,43 @@
+.tool-bar{
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--color-background-primary);
+}
+
+.search-container, .selection-container{
+  min-width: 250px;
+}
+
+.list-container{
+  margin-top: 20px;
+  background-color: var(--color-background-primary);
+}
+
+.header-table {
+  display: flex;
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  font-weight: bold;
+}
+
+.header-table > div,
+.content-table .item-content-table > div {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+.content-table .item-content-table {
+  display: flex;
+  border-bottom: 1px solid var(--color-border-primary);
+}
+
+.content-table .item-content-table:hover {
+  background-color: #f9f9f9;
+}
+
+.footer-table {
+  padding: 10px;
+  text-align: right;
+}
+

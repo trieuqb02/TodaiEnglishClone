@@ -1,0 +1,127 @@
+<form class="form-container signup" [formGroup]="registerForm">
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['lastName'].errors && submitted"
+      formControlName="lastName"
+      class="form-group-input border-radius-sm"
+      type="text"
+      id="lastName"
+      name="lastName"
+      placeholder="Nhập họ"
+    />
+    <div class="form-group-error">
+      @if (f['lastName'].errors && submitted) {
+      <span>Vui lòng nhập họ</span>
+      }
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['firstName'].errors && submitted"
+      formControlName="firstName"
+      class="form-group-input border-radius-sm"
+      type="text"
+      id="firstName"
+      name="firstName"
+      placeholder="Nhập tên"
+    />
+    <div class="form-group-error">
+      @if (f['firstName'].errors && submitted) {
+      <span>Vui lòng nhập tên</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['username'].errors && submitted"
+      formControlName="username"
+      class="form-group-input border-radius-sm"
+      type="text"
+      id="username"
+      name="username"
+      placeholder="Nhập tài khoản"
+    />
+    <div class="form-group-error">
+      @if (f['username'].errors && f['username'].errors['required'] && submitted)
+      {
+      <span>Vui lòng nhập tên tài khoản</span>
+      } @else if (messageError && submitted) {
+      <span>{{ messageError }}</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['password'].errors && submitted"
+      formControlName="password"
+      class="form-group-input border-radius-sm"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Nhập mật khẩu"
+    />
+    <div class="form-group-error">
+      @if (f['password'].errors && f['password'].errors['minlength'] &&
+      submitted) {
+      <span>Mật khẩu ít nhất 6 kí tự</span>
+      } @else if (f['password'].errors && f['password'].errors['required'] &&
+      submitted) {
+      <span>Vui lòng nhập mật khẩu</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      (click)="cancelError()"
+      [class.error]="f['confirmPassword'].errors && submitted"
+      formControlName="confirmPassword"
+      class="form-group-input border-radius-sm"
+      type="password"
+      id="confirmPassword"
+      name="confirmPassword"
+      placeholder="Nhập lại mật khẩu"
+    />
+    <div class="form-group-error">
+      @if (f['confirmPassword'].errors &&
+      f['confirmPassword'].errors['matching'] && submitted) {
+      <span>Xác nhận mật khẩu không chính xác</span>
+      } @else if (f['confirmPassword'].errors &&
+      f['confirmPassword'].errors['required'] && submitted) {
+      <span>Vui lòng xác nhận mật khẩu</span>
+      }
+    </div>
+  </div>
+
+  <div class="form-group">
+    <app-button
+      [buttonClass]="'primary'"
+      [borderRadius]="'24px'"
+      (onClick)="onSubmit()"
+    >
+      Register
+    </app-button>
+  </div>
+  <div class="flex-container flex-row-reverse mtb-16">
+    <a routerLink="/auth/login" class="page-link" href=""
+      >Login with new account</a
+    >
+  </div>
+  <span class="or mtb-16">or</span>
+  <div class="flex-container justify-between">
+    <app-oauth2-button [oauth2Type]="'facebook'">
+      <i class="fa-brands fa-facebook fb"></i>
+      Register with FaceBook
+    </app-oauth2-button>
+    <app-oauth2-button [oauth2Type]="'google'">
+      <i class="fa-brands fa-google gg"></i>
+      Register with Google
+    </app-oauth2-button>
+  </div>
+</form>

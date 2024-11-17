@@ -1,0 +1,25 @@
+.breadcrumb {
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumb .breadcrumb-item a {
+  display: inline-block;
+  color: var(--color-text-black);
+  text-decoration: none;
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+  display: inline-block;
+  content: '/';
+  padding: 0 5px;
+  color: var(--color-text-black);
+}
+
+.breadcrumb .breadcrumb-item:last-child a {
+  color: var(--color-text-black);
+}

@@ -1,0 +1,54 @@
+button {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    font-size: var(--font-size-md);
+    outline: none;
+    border: none;
+    padding: 10px;
+    background-color: var(--color-bg);
+    color: var(--color-text)
+}
+
+button:disabled {
+    --color-bg: var(--color-secondary);
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    opacity: 0.8;
+}
+
+button.none {
+    --color-bg: var(--color-white);
+    --color-text: var(--color-text-black);
+}
+
+button.primary {
+    --color-bg: var(--color-primary);
+    --color-text: var(--color-text-white);
+}
+
+button.secondary  {
+    --color-bg: var(--color-secondary);
+    --color-text: var(--color-text-white);
+}
+
+button.edit {
+    --color-bg: var(--color-edit-btn);
+    --color-text: var(--color-text-white)
+}
+
+button.danger {
+    --color-bg: var(--color-danger-btn);
+    --color-text: var(--color-text-white)
+}
+
+button.info {
+    --color-bg: var(--color-info-btn);
+    --color-text: var(--color-text-white)
+}
+
+button i {
+    font-size: 18px;
+}

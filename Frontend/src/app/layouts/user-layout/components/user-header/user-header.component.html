@@ -1,0 +1,45 @@
+<div class="header">
+  <app-toolbar class="grid wide flex-container" style="height: 100%">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <img src="./assets/images/ic_logo_web.png" width="184" height="44" alt="logo">
+      </a>
+      <div class="nav-list">
+        <a class="nav-item" ariaCurrentWhenActive="page" routerLink="home" routerLinkActive="active">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+        <a class="nav-item" routerLink="video" routerLinkActive="active">
+          <i class="fa-solid fa-circle-play"></i>
+          <span>Video</span>
+        </a>
+        <a class="nav-item" routerLink="test" routerLinkActive="active">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Test</span>
+        </a>
+      </div>
+
+    </div>
+    <span class="spacer"></span>
+    <div class="header-container">
+      <app-dropdown>
+        <app-avatar dropdown-menu-button [src]="
+            'https://scontent.fsgn8-3.fna.fbcdn.net/v/t1.6435-9/110657863_657409918181613_3973024119035370532_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=stZnr8_4XEsQ7kNvgF8mdcC&_nc_ht=scontent.fsgn8-3.fna&_nc_gid=AaKhKwMPfN46yOYmhOtJWAU&oh=00_AYCGGBPFZ5m47IGHHyQadxG1ODJ7d_yX6dKdM-SSAMByyw&oe=672B0B2C'
+          "
+                    [size]="36"
+                    [alt]="'Ảnh đại diện'">
+          <span>Bùi Quốc Triệu</span>
+        </app-avatar>
+        @for (item of userMenu; track $index) {
+          <app-button
+            [buttonClass]="'menu-btn'"
+            dropdown-item
+            [type]="'submit'"
+            [position]="'start'"
+          >{{ item.name }}
+          </app-button>
+        }
+      </app-dropdown>
+    </div>
+  </app-toolbar>
+</div>
