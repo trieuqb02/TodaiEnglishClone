@@ -9,6 +9,10 @@ export interface NewsModel {
   audio: string;
   status: boolean;
   viewed: number;
+  tc_1?:string;
+  tc_2?:string;
+  tc_3?:string;
+  tc_4?:string;
   createdAt?: Date;
   updatedAt?: Date;
   deletedAt?: Date;

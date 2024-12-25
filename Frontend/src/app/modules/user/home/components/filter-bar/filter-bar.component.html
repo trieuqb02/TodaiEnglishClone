@@ -6,12 +6,12 @@
       </app-button>
     </div>
     <div class="flex-item--lg-11-5">
-      <app-search-input></app-search-input>
+      <app-search-input (valueChange)="handleChange($event)"></app-search-input>
     </div>
   } @else {
     <div class="flex-item--lg-3 flex-container align-center">
       <div class="button-container mr-10">
-        <app-button [buttonClass]="'custom-filter-button'" [borderRadius]="'8px'">
+        <app-button [buttonClass]="'custom-filter-button'" [borderRadius]="'8px'" (click)="handleOpenDictionary()">
           <i class="fa-solid fa-book"></i>
           Dictionary
         </app-button>
@@ -37,16 +37,18 @@
         </div>
         <div>
           <span>Source: </span>
-          <select>
-            <option>BCC</option>
-            <option>CNN</option>
+          <select (change)="handleSelect('topic',$event)">
+            @for (item of sourceList; track item.id) {
+              <option [value]="item.id">{{item.name}}</option>
+            }
           </select>
         </div>
         <div>
           <span>Topic: </span>
-          <select>
-            <option>Science and technology</option>
-            <option>Travel</option>
+          <select (change)="handleSelect('source',$event)">
+            @for (item of topicList; track item.id) {
+              <option [value]="item.id">{{item.name}}</option>
+            }
           </select>
         </div>
       </div>

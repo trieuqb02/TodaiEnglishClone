@@ -12,11 +12,6 @@ const userMenu:IMenu[] = [
   },
   {
     id: 1,
-    name: 'Setting',
-    url: 'setting',
-  },
-  {
-    id: 2,
     name: 'Logout',
     url: 'logout',
   },

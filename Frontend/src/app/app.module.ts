@@ -4,7 +4,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {AuthModule} from './modules/auth/auth.module';
-import {HttpClientModule} from "@angular/common/http";
+import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 // import {InterceptorProviders} from "./core/interceptors/interceptor";
 import {UserLayoutComponent} from "./layouts/user-layout/user-layout.component";
@@ -22,6 +22,9 @@ import {ManagementTopicModule} from './modules/admin/management-topic/management
 import {ManagementNewsModule} from "./modules/admin/management-news/management-news.module";
 import {NotFoundLayoutComponent} from "./layouts/not-found-layout/not-found-layout.component";
 import {ManagementUserModule} from "./modules/admin/management-user/management-user.module";
+import {DictionaryComponent} from './layouts/user-layout/components/dictionary/dictionary.component';
+import {VideoModule} from "./modules/user/video/video.module";
+import {TestModule} from "./modules/user/test/test.module";
 
 @NgModule({
   declarations: [
@@ -34,23 +37,28 @@ import {ManagementUserModule} from "./modules/admin/management-user/management-u
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminNavBarComponent,
-    NotFoundLayoutComponent
+    NotFoundLayoutComponent,
+    DictionaryComponent
   ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    HttpClientModule,
     SharedModule,
     HomeModule,
     NewsDetailModule,
     ManagementSourceModule,
     ManagementTopicModule,
     ManagementNewsModule,
-    ManagementUserModule
+    ManagementUserModule,
+    VideoModule,
+    TestModule
   ],
-  providers: [CookieService],
-  bootstrap: [AppComponent],
+  providers: [
+    CookieService,
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule {
 }

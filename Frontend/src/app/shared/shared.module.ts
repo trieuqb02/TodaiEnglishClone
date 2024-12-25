@@ -20,6 +20,7 @@ import {TitleHeaderComponent} from './components/title-header/title-header.compo
 import {NewsComponent} from "./components/news/news.component";
 import {LoadingComponent} from './components/loading/loading.component';
 import {FormatDatePipe} from "./pipes/format-date.pipe";
+import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import {FormatDatePipe} from "./pipes/format-date.pipe";
     TitleHeaderComponent,
     NewsComponent,
     LoadingComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    ComingSoonComponent
   ],
   declarations: [
     ButtonComponent,
@@ -67,7 +69,8 @@ import {FormatDatePipe} from "./pipes/format-date.pipe";
     TitleHeaderComponent,
     NewsComponent,
     LoadingComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    ComingSoonComponent
   ],
 })
 export class SharedModule {

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
+import {NewsModel} from "../../../../../data/models/news.interface";
 
 @Component({
   selector: 'app-drag-scroll',
@@ -7,12 +8,9 @@ import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
   styleUrl: './drag-scroll.component.css'
 })
 export class DragScrollComponent {
-  text: string = "This is a normal word tc1-a tc2-warning tc3-critical tc4-info other, This is a normal word tc1-a tc2-warning tc3-critical tc4-info other. This is a normal word tc1-a tc2-warning tc3-critical tc4-info other";
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor() {}
 
-  getSafeHtml(text: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(text);
-  }
+  @Input() data!:NewsModel[];
 
 }

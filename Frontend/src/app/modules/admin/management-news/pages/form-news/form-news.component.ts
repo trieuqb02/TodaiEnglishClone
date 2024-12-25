@@ -19,31 +19,33 @@ import {ParagraphModel} from "../../../../../data/models/paragraph.interface";
   styleUrl: './form-news.component.css'
 })
 export class FormNewsComponent implements OnInit {
-  constructor(private router: ActivatedRoute) {
-  }
+  constructor(private router: ActivatedRoute) {}
 
   @ViewChildren('files') files!: QueryList<ElementRef<HTMLInputElement>>;
 
   public imageFile: WritableSignal<string> = signal('');
   public audioFile: WritableSignal<string> = signal('');
 
+  private  updatedContent!: string;
   private formType: string = 'add';
   public submitted: boolean = false;
-
+  public title!: string;
   public newsForm!: FormGroup;
 
   ngOnInit(): void {
     const urlSegments = this.router.snapshot.url.map(segment => segment.path);
+    this.router.data.subscribe(data => {
+      this.title = data['breadcrumb'];
+    })
     this.initForm(null);
     if (urlSegments.includes('update')) {
       // const id: string = this.router.snapshot.params['id'];
       this.formType = 'update';
       this.initForm(this.data);
-      console.log(this.newsForm)
     }
   }
 
-  private data = {
+  private data:NewsModel = {
     id: '3',
     title: "Thể thao: Đội tuyển Việt Nam giành chiến thắng lịch sử",
     image: "https://example.com/images/sports-news.jpg",
@@ -90,7 +92,7 @@ export class FormNewsComponent implements OnInit {
       image: new FormControl<string>(data ? data.image : '', Validators.required),
       audio: new FormControl<string>(data ? data.audio : '', Validators.required),
       createdAt: new FormControl<Date | null>(null, Validators.required),
-      paragraphs: new FormArray<FormGroup>(data ? this.initParagraphs(this.data.paragraphs) : [], Validators.required),
+      paragraphs: new FormArray<FormGroup>(data ? this.initParagraphs(data.paragraphs!) : [], Validators.required),
     });
   }
 
@@ -176,17 +178,32 @@ export class FormNewsComponent implements OnInit {
     this.paragraphs.push(paragraph);
   }
 
-  public handleRemoveParagraph(value: number): void {
+  public handleRemoveParagraph(idx: number): void {
     if (this.formType == 'update') {
-      const paragraphGroup = this.paragraphs.at(value) as FormGroup;
+      const paragraphGroup = this.paragraphs.at(idx) as FormGroup;
       paragraphGroup.get('isDeleted')?.setValue(true);
     } else {
-      this.paragraphs.removeAt(value);
+      this.paragraphs.removeAt(idx);
     }
   }
 
   public handleSubmit(): void {
     this.submitted = true;
     console.log(this.newsForm.value)
+  }
+
+  public handleFocus(event: Event): void {
+    if(this.formType == 'update') {
+      this.updatedContent = (event.target as HTMLTextAreaElement).value;
+    }
+  }
+
+  public handleBlur(idx: number): void {
+    if(this.formType == 'update') {
+      const paragraphGroup = this.paragraphs.at(idx) as FormGroup;
+      if(this.updatedContent !== paragraphGroup.get('content')?.value){
+        paragraphGroup.get('isNew')?.setValue(false);
+      }
+    }
   }
 }

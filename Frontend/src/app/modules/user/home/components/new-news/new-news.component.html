@@ -1,23 +1,24 @@
 <div class="box-all-news">
-  <a class="first-news" >
-    <img class="first-news-image" ngSrc="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-         fill alt="ảnh">
+  <a class="first-news" routerLink="/news/{{data[0].id}}/detail">
+    <img class="first-news-image"
+         [src]="data[0].image"
+         alt="ảnh">
     <div class="article-info">
-      <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-      <span class="source">TODAII</span>
-      <span class="time-up">2024-11-05 07:31:32</span>
+      <h3 class="title" [innerHTML]="data[0].title | wordLevel"></h3>
+      <span class="source">{{data[0].source.name}}</span>
+      <span class="time-up">{{ data[0].createdAt! | formatDate }}</span>
       <span class="number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
+        [<i class="fa-solid fa-eye"></i> {{data[0].viewed}}]
       </span>
     </div>
     <div class="color-level">
-      <div class="line-level-1"></div>
-      <div class="line-level-2"></div>
-      <div class="line-level-3"></div>
-      <div class="line-level-4"></div>
+      <div class="line-level-1" [ngStyle]="{width: data[0].tc_1}"></div>
+      <div class="line-level-2" [ngStyle]="{width: data[0].tc_2}"></div>
+      <div class="line-level-3" [ngStyle]="{width: data[0].tc_3}"></div>
+      <div class="line-level-4" [ngStyle]="{width: data[0].tc_4}"></div>
     </div>
   </a>
   <div class="mt-20">
-    <app-drag-scroll></app-drag-scroll>
+    <app-drag-scroll [data]="data.slice(1)"></app-drag-scroll>
   </div>
 </div>

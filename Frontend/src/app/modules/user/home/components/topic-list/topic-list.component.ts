@@ -7,14 +7,9 @@ import {TopicModel} from "../../../../../data/models/topic.interface";
   styleUrl: './topic-list.component.css'
 })
 export class TopicListComponent implements  OnInit{
-  allTopic:TopicModel[] = [
-
-  ];
-
-  // @Output("management-topic") management-topic:EventEmitter<string> = new EventEmitter<string>;
-  // @Input("management-topic") topicName!:string;
-
-  name:string = "Travel";
+  @Input() data!: TopicModel[];
+  @Input() topicId!: string;
+  @Output() topicIdChange:EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
@@ -22,8 +17,7 @@ export class TopicListComponent implements  OnInit{
   ngOnInit(): void {
   }
 
-  // selectTopic(name:string){
-  //   this.management-topic.emit(name);
-  //   this.name = name;
-  // }
+  selectTopic(data:string):void{
+    this.topicIdChange.emit(data)
+  }
 }

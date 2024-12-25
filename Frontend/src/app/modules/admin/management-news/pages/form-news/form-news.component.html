@@ -1,5 +1,5 @@
 <div class="my-6">
-<!--  <app-title-header class="" [title]="title"></app-title-header>-->
+  <app-title-header class="" [title]="title"></app-title-header>
 </div>
 <div class="form-container flex-container row-gutter-lr-16 flex-wrap box-shadow-sm border-radius-sm" [formGroup]="newsForm">
   <div class="form-group flex-item--lg-3 col-gutter-lr-16">
@@ -87,15 +87,14 @@
     @for (paragraph of paragraphs.controls; let idx = $index; track paragraph.value) {
       @if (!paragraphs.at(idx).get('isDeleted')?.value){
         <div [formGroupName]="idx" class="mt-20">
-          <div class="flex-container justify-between mb-10">
-            <span>Paragraph</span>
+          <div class="flex-container justify-end mb-10">
             <div class="remove-container">
               <button class="remove-btn" [title]="'remove news'" type="button" (click)="handleRemoveParagraph(idx)">
                 <i class="fa-regular fa-trash-can"></i>
               </button>
             </div>
           </div>
-          <textarea class="form-group-input" rows="6" placeholder="Enter paragraph" formControlName="content" (click)="cancelError()"></textarea>
+          <textarea class="form-group-input" rows="6" placeholder="Enter paragraph" formControlName="content" (click)="cancelError()" (focus)="handleFocus($event)" (blur)="handleBlur(idx)"></textarea>
           @if (paragraphs.at(idx).get('content')?.errors?.['required'] && submitted) {
             <div class="form-group-error">
               <span>Pls enter paragraph content</span>

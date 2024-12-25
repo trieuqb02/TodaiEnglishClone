@@ -42,7 +42,7 @@ const routes: Routes = [
             .then(m => m.TestRoutingModule)
       },
       {
-        path: 'news/detail',
+        path: 'news/:id/detail',
         loadChildren: () =>
           import('./modules/user/news-detail/news-detail-routing.module')
             .then(m => m.NewsDetailRoutingModule)

@@ -1,224 +1,28 @@
 <div appDragScroll class="drag-scroll">
   <div class="flex-container news-list row-gutter-lr-8">
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
+    @for (item of data; track item.id) {
+      <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8" routerLink="/news/{{item.id}}/detail">
+        <div class="news-item-content">
+          <div class="news-image">
+            <img class="image" [src]="item.image"
+                 fill alt="ảnh">
+            <div class="color-level">
+              <div class="line-level-1" [ngStyle]="{width: item.tc_1}"></div>
+              <div class="line-level-2" [ngStyle]="{width: item.tc_2}"></div>
+              <div class="line-level-3" [ngStyle]="{width: item.tc_3}"></div>
+              <div class="line-level-4" [ngStyle]="{width: item.tc_4}"></div>
+            </div>
           </div>
+          <div class="news-topic">{{item.topic?.name}}</div>
         </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
+        <div class="news-title">
+          <p class="title" [innerHTML]="item.title | wordLevel"></p>
         </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
+        <div class="news-time-up">{{item.createdAt! | formatDate}}</div>
+        <span class="news-number-view">
+        [<i class="fa-solid fa-eye"></i> {{item.viewed}}]
       </span>
-    </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a><a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-    <div class="news-item-content">
-      <div class="news-image">
-        <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-             fill alt="ảnh">
-        <div class="color-level">
-          <div class="line-level-1"></div>
-          <div class="line-level-2"></div>
-          <div class="line-level-3"></div>
-          <div class="line-level-4"></div>
-        </div>
-      </div>
-      <div class="news-topic">TODAII</div>
-    </div>
-    <div class="news-title">
-      <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-    </div>
-    <div class="news-time-up">2024-11-05 07:31:32</div>
-    <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-  </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a><a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-    <div class="news-item-content">
-      <div class="news-image">
-        <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-             fill alt="ảnh">
-        <div class="color-level">
-          <div class="line-level-1"></div>
-          <div class="line-level-2"></div>
-          <div class="line-level-3"></div>
-          <div class="line-level-4"></div>
-        </div>
-      </div>
-      <div class="news-topic">TODAII</div>
-    </div>
-    <div class="news-title">
-      <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-    </div>
-    <div class="news-time-up">2024-11-05 07:31:32</div>
-    <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-  </a>
-    <a href="" class="news-item flex-item--lg-2 col-gutter-lr-8">
-      <div class="news-item-content">
-        <div class="news-image">
-          <img class="image" src="https://admin.todaienglish.com/images/news/e17403700455ff2fc09a1d7d5616e4ef.webp"
-               fill alt="ảnh">
-          <div class="color-level">
-            <div class="line-level-1"></div>
-            <div class="line-level-2"></div>
-            <div class="line-level-3"></div>
-            <div class="line-level-4"></div>
-          </div>
-        </div>
-        <div class="news-topic">TODAII</div>
-      </div>
-      <div class="news-title">
-        <p class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></p>
-      </div>
-      <div class="news-time-up">2024-11-05 07:31:32</div>
-      <span class="news-number-view">
-        [<i class="fa-solid fa-eye"></i> 398]
-      </span>
-    </a>
-
-
+      </a>
+    }
   </div>
 </div>

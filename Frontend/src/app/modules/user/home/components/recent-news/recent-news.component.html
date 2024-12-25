@@ -1,183 +1,45 @@
 <div class="recent-news">
-  <h2>Read news by day</h2>
-
-  <div class="date-input-container flex-container align-center">
-    <label for="date" class="date-label">Choose a date:</label>
-    <div class="date-wrapper">
-      <input type="date" id="date" class="date-input" >
+  @if (showInputDate){
+    <h2>Read news by day</h2>
+    <div class="date-input-container flex-container align-center">
+      <label for="date" class="date-label">Choose a date:</label>
+      <div class="date-wrapper">
+        <input type="date" id="date" class="date-input" [(ngModel)]="selectedDate" (change)="onDateChange()">
+      </div>
     </div>
-  </div>
-
+  }
 
   <div class="flex-container flex-column news-list">
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
+    @for (item of data; track item.id){
+      <a class="flex-container flex-item--lg-12 news-item" routerLink="/news/{{item.id}}/detail">
+        <div>
+          <img class="news-item-image"
+               [src]="item.image"
+               fill alt="ảnh">
+        </div>
+        <div class="news-info">
+          <h3 class="title" [innerHTML]="item.title | wordLevel"></h3>
+          <p class="content" [innerHTML]="concatParagraphs(item.paragraphs!) | wordLevel"></p>
+          <div class="flex-container justify-between">
+            <div>
+              <span class="source">Source: {{item.source.name}}</span>
+            </div>
+            <div>
+              <span class="time-up">{{item.createdAt! | formatDate}}</span>
+              <span class="number-view">
+              [<i class="fa-solid fa-eye"></i> {{item.viewed}}]
             </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
-            </span>
-          </div>
+        <div class="color-level">
+          <div class="line-level-1" [ngStyle]="{width: item.tc_1}"></div>
+          <div class="line-level-2" [ngStyle]="{width: item.tc_2}"></div>
+          <div class="line-level-3" [ngStyle]="{width: item.tc_3}"></div>
+          <div class="line-level-4" [ngStyle]="{width: item.tc_4}"></div>
         </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
-    <div class="flex-container flex-item--lg-12 news-item">
-      <div>
-        <img class="news-item-image"
-             src="https://admin.todaienglish.com/images/news/55c695755826a4f782c38d058559a5bc.jpg"
-             fill alt="ảnh">
-      </div>
-      <div class="news-info">
-        <h3 class="title" [innerHTML]="getSafeHtml(text | wordLevel)"></h3>
-        <p class="content" [innerHTML]="getSafeHtml(content | wordLevel)"></p>
-        <div class="flex-container justify-between">
-          <div>
-            <span class="source">Source: TODAII</span>
-          </div>
-          <div>
-            <span class="time-up">2024-11-05 07:31:32</span>
-            <span class="number-view">
-              [<i class="fa-solid fa-eye"></i> 398]
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="color-level">
-        <div class="line-level-1"></div>
-        <div class="line-level-2"></div>
-        <div class="line-level-3"></div>
-        <div class="line-level-4"></div>
-      </div>
-    </div>
+      </a>
+    }
     <div class="flex-container justify-center align-content-center">
       <span class="load-more">Load more...</span>
     </div>

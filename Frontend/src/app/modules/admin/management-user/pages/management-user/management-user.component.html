@@ -1,1 +1,99 @@
-<p>management-user works!</p>
+<div class="my-6">
+  <app-title-header [title]="'Management Topic'"></app-title-header>
+</div>
+<div class="flex-container justify-between align-center box-shadow-sm border-radius-xs tool-bar">
+  <div class="search-container">
+    <app-search-input (valueChange)="onValueChange($event)"></app-search-input>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionRole" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+  <div class="selection-container">
+    <app-selection [options]="optionStatus" (selectionChange)="selectionChange($event)"></app-selection>
+  </div>
+</div>
+
+<div class="box-shadow-sm border-radius-xs list-container">
+  <div class="header-table flex-container">
+    <div class="flex-item--lg-1">Avatar</div>
+    <div class="flex-item--lg-3">Username</div>
+    <div class="flex-item--lg-3">FullName</div>
+    <div class="flex-item--lg-2">Role</div>
+    <div class="flex-item--lg-2">Status</div>
+    <div class="flex-item--lg-1">Operations</div>
+  </div>
+  <div class="content-table">
+    @for (item of data; track item.id) {
+      <div class="item-content-table flex-container">
+        <div class="flex-item--lg-1 rate-line">
+          @if (item.thumbnail) {
+            <app-avatar [src]="item.thumbnail"></app-avatar>
+          } @else {
+            <app-avatar [src]="generateAvatar(item.firstName)"></app-avatar>
+          }
+        </div>
+        <div class="flex-item--lg-3 rate-line">
+          <p>{{ item.username }}</p>
+        </div>
+        <div class="flex-item--lg-3"><p>{{ item.lastName + ' ' + item.firstName }}</p></div>
+        <div class="flex-container align-center flex-item--lg-2">
+          @if (item.roleId.id === 'ADMIN') {
+            <span class="block admin">
+              {{item.roleId.name}}
+            </span>
+          } @else {
+            <span class="block viewer">
+              {{item.roleId.name}}
+            </span>
+          }
+        </div>
+        <div class="flex-container align-center flex-item--lg-2">
+          @if (item.status) {
+            <span class="block active">
+              Active
+            </span>
+          } @else {
+            <span class="block disable">
+              Disable
+            </span>
+          }
+        </div>
+        <div class="flex-container align-center flex-item--lg-1">
+          @if (item.status) {
+            <app-button [type]="'button'" [buttonClass]="'danger'" [borderRadius]="'6px'" [fontSize]="'xxs'">
+              <i class="fa-solid fa-lock"></i>
+            </app-button>
+          } @else {
+            <app-button [type]="'button'" [buttonClass]="'primary'" [borderRadius]="'6px'" [fontSize]="'xxs'">
+              <i class="fa-solid fa-unlock"></i>
+            </app-button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+
+<app-modal [(isVisible)]="showNotification">
+  <div class="notification border-radius-sm">
+    <h2 class="notification-title">Confirm Remove</h2>
+    <div class="notification-content">
+      Are you sure you want to remove this item?
+    </div>
+    <div class="flex-container justify-between row-gutter-lr-16">
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'danger'" [borderRadius]="'8px'" (click)="showNotification = !showNotification"
+                    [fontSize]="'sm'">
+          Cancel
+        </app-button>
+      </div>
+      <div class="flex-item--lg-6 col-gutter-lr-16">
+        <app-button [buttonClass]="'primary'" [borderRadius]="'8px'" (click)="showNotification = !showNotification"
+                    [fontSize]="'sm'">
+          Confirm
+        </app-button>
+      </div>
+    </div>
+  </div>
+</app-modal>
