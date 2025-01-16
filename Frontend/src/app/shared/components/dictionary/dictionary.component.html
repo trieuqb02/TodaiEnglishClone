@@ -1,0 +1,67 @@
+<div #dictionary class="dictionary-container box-shadow-lg">
+  <div class="dictionary-toolbar">
+    <span class="icon">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </span>
+    <div class="flex-grow-1">
+      <input class="input-search" placeholder="Enter the keyword you need to search" [value]="search()"
+             (keyup)="handleEnter($event)">
+    </div>
+    <span class="icon" (click)="handleCloseDictionary()">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+  </div>
+  <div class="dictionary-body">
+    @if (word()) {
+      <div class="word-container">
+        <div class="word-header">
+          <h1 class="word-title">{{ word()?.word }}</h1>
+          <p class="word-phonetic">Pronunciation: {{ word()?.phonetic }}</p>
+        </div>
+        <div class="word-body">
+          @for (meaning of word()?.meanings; track meaning.partOfSpeech) {
+            <h2>{{ meaning.partOfSpeech | uppercase }}</h2>
+            <div>
+              @for (definition of meaning.definitions; track definition.definition) {
+                <p class="meaning-definition">Def: {{ definition.definition }}</p>
+                @if (definition?.example) {
+                  <p class="meaning-example">Eg: {{ definition?.example }}</p>
+                }
+              }
+            </div>
+            @if (meaning.antonyms.length) {
+              <p class="meaning-antonyms">Antonyms: [
+                @for (antonym of meaning.antonyms; track antonym; let last = $last) {
+                  @if (!last) {
+                    {{ antonym | lowercase }},
+                  } @else {
+                    {{ antonym | lowercase }}.
+                  }
+                }]
+              </p>
+            }
+            @if (meaning.synonyms.length) {
+              <p class="meaning-synonyms">Synonyms: [
+                @for (synonym of meaning.synonyms; track synonym;let last = $last) {
+                  @if (!last) {
+                    {{ synonym | lowercase }},
+                  } @else {
+                    {{ synonym | lowercase }}.
+                  }
+                } ]
+              </p>
+            }
+          }
+        </div>
+      </div>
+    } @else if (notfound) {
+      <div class="flex-container align-center justify-center h-full">
+        <h2 class="not-found-title">{{ notfound }}</h2>
+      </div>
+    }
+  </div>
+</div>
+
+
+
+

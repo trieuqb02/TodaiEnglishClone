@@ -1,6 +1,5 @@
-.navbar{
+.navbar {
   overflow: auto;
-  padding: 6px;
   width: 250px;
   background-color: var(--color-background-primary);
   height: calc(100vh - 64px - 34px);
@@ -23,17 +22,13 @@
   background-color: var(--color-white);
 }
 
-.navbar-links{
-  padding: 0;
+.navbar-links {
   margin: 0;
   list-style: none;
-  width: 100%;
-}
-.navbar-links-item{
-  width: 100%;
+  padding: 6px;
 }
 
-.navbar-links-item a{
+.navbar-links-item a {
   padding: 6px;
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
@@ -44,12 +39,12 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar-links-item a:hover{
+.navbar-links-item a:hover {
   color: var(--color-text-white);
   background-color: var(--color-primary);
 }
 
-.navbar-links-item a.active{
+.navbar-links-item a.active {
   color: var(--color-text-white);
   background-color: var(--color-secondary);
 }

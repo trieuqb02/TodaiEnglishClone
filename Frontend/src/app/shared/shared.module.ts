@@ -6,7 +6,7 @@ import {ToolbarComponent} from './components/toolbar/toolbar.component';
 import {DropdownComponent} from './components/dropdown/dropdown.component';
 import {DropdownDirective} from './directives/dropdown.directive';
 import {AvatarComponent} from './components/avatar/avatar.component';
-import {NgClass} from "@angular/common";
+import {LowerCasePipe, NgClass, UpperCasePipe} from "@angular/common";
 import {WordLevelPipe} from './pipes/word-level.pipe';
 import {DragScrollDirective} from "./directives/dragscroll.directive";
 import {AudioComponent} from './components/audio/audio.component';
@@ -20,14 +20,18 @@ import {TitleHeaderComponent} from './components/title-header/title-header.compo
 import {NewsComponent} from "./components/news/news.component";
 import {LoadingComponent} from './components/loading/loading.component';
 import {FormatDatePipe} from "./pipes/format-date.pipe";
-import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
+import {ComingSoonComponent} from './components/coming-soon/coming-soon.component';
+import {HighlightTextDirective} from './directives/highlight-text.directive'
+import {DictionaryComponent} from "./components/dictionary/dictionary.component";
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
     NgClass,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    UpperCasePipe,
+    LowerCasePipe
   ],
   exports: [
     ReactiveFormsModule,
@@ -49,10 +53,12 @@ import { ComingSoonComponent } from './components/coming-soon/coming-soon.compon
     NewsComponent,
     LoadingComponent,
     FormatDatePipe,
-    ComingSoonComponent
+    ComingSoonComponent,
+    DictionaryComponent
   ],
   declarations: [
     ButtonComponent,
+    DictionaryComponent,
     Oauth2ButtonComponent,
     ToolbarComponent,
     DropdownComponent,
@@ -70,7 +76,8 @@ import { ComingSoonComponent } from './components/coming-soon/coming-soon.compon
     NewsComponent,
     LoadingComponent,
     FormatDatePipe,
-    ComingSoonComponent
+    ComingSoonComponent,
+    HighlightTextDirective
   ],
 })
 export class SharedModule {

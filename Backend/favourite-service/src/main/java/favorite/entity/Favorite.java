@@ -22,6 +22,4 @@ public class Favorite extends AbstractAuditing{
     String userId;
 
     String newsId;
-
-
 }

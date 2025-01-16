@@ -54,4 +54,6 @@ export class HomeComponent implements OnInit {
     this.topicId = '';
     this.sourceId = '';
   }
+
+  protected readonly top = top;
 }

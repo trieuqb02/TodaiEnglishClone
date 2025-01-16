@@ -37,17 +37,17 @@
         </div>
         <div>
           <span>Source: </span>
-          <select (change)="handleSelect('topic',$event)">
+          <select (change)="handleSelect('topic',$event)" title="Topic">
             @for (item of sourceList; track item.id) {
-              <option [value]="item.id">{{item.name}}</option>
+              <option [value]="item.id" [defaultSelected]="topicId === item.id">{{ item.name }}</option>
             }
           </select>
         </div>
         <div>
           <span>Topic: </span>
-          <select (change)="handleSelect('source',$event)">
+          <select (change)="handleSelect('source',$event)" title="Source">
             @for (item of topicList; track item.id) {
-              <option [value]="item.id">{{item.name}}</option>
+              <option [value]="item.id">{{ item.name }}</option>
             }
           </select>
         </div>

@@ -1,6 +1,7 @@
 <div class="flex-container row-gutter-lr-16">
   <div class="flex-item--lg-9 col-gutter-lr-16">
     <app-filter-bar
+      [topicId]="topicId"
       [topicList]="allTopic"
       [sourceList]="allSource"
       (topicIdChange)="selectedTopic($event)"

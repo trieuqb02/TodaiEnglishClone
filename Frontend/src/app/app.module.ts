@@ -22,9 +22,10 @@ import {ManagementTopicModule} from './modules/admin/management-topic/management
 import {ManagementNewsModule} from "./modules/admin/management-news/management-news.module";
 import {NotFoundLayoutComponent} from "./layouts/not-found-layout/not-found-layout.component";
 import {ManagementUserModule} from "./modules/admin/management-user/management-user.module";
-import {DictionaryComponent} from './layouts/user-layout/components/dictionary/dictionary.component';
 import {VideoModule} from "./modules/user/video/video.module";
 import {TestModule} from "./modules/user/test/test.module";
+import {FormsModule} from "@angular/forms";
+import {API_DICTIONARY, API_DICTIONARY_VALUE} from "./app.config";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import {TestModule} from "./modules/user/test/test.module";
     AdminFooterComponent,
     AdminNavBarComponent,
     NotFoundLayoutComponent,
-    DictionaryComponent
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -53,11 +53,15 @@ import {TestModule} from "./modules/user/test/test.module";
     ManagementNewsModule,
     ManagementUserModule,
     VideoModule,
-    TestModule
+    TestModule,
+    FormsModule
   ],
   providers: [
     CookieService,
-    provideHttpClient(withInterceptorsFromDi())
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: API_DICTIONARY, useValue: API_DICTIONARY_VALUE
+    }
   ]
 })
 export class AppModule {

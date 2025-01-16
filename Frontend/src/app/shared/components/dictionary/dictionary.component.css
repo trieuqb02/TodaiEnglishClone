@@ -1,0 +1,116 @@
+.dictionary-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  height: 500px;
+  width: 600px;
+  z-index: 100;
+}
+
+.dictionary-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  height: 46px;
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
+}
+
+.dictionary-toolbar .icon {
+  cursor: pointer;
+}
+
+.dictionary-toolbar .icon i {
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+}
+
+.input-search {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0 8px;
+  color: var(--color-text-white);
+}
+
+.input-search::placeholder {
+  color: var(--color-text-white);
+}
+
+.dictionary-body {
+  height: calc(500px - 46px);
+  background-color: var(--color-background-primary);
+  overflow-y: auto;
+}
+
+.word-container {
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-primary);
+  background-color: var(--color-background-secondary);
+  margin: 16px;
+}
+
+.word-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-border-primary);
+  padding-bottom: 10px;
+}
+
+.word-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.word-phonetic {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin: 5px 0 0;
+}
+
+.word-body h2 {
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.word-body .meaning-definition {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  margin: 12px 0 6px;
+}
+
+.word-body .meaning-example {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 6px 0;
+}
+
+.meaning-antonyms,
+.meaning-synonyms {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.word-body > div {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.not-found-title{
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  animation: fadeIn 1s ease-in-out;
+}
+

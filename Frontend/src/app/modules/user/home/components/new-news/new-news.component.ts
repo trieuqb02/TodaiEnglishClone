@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {NewsModel} from "../../../../../data/models/news.interface";
-import {GlobalService} from "../../../../../data/services/global.service";
 
 @Component({
   selector: 'app-new-news',
